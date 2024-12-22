@@ -1,0 +1,41 @@
+{
+  "name": "@potentii/logger-js-pino",
+  "version": "1.0.0",
+  "description": "Logger for JS using pino",
+  "author": "Guilherme Reginaldo Ruella <potentii@gmail.com>",
+  "license": "MIT",
+
+  "main": "main.mjs",
+  "type": "module",
+
+  "scripts": {
+  },
+
+  "files": [
+    "main.mjs",
+    "libs/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "log",
+    "logger",
+    "dynamic",
+    "context",
+    "payload",
+    "circular",
+    "pino"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Potentii/logger-js-pino.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Potentii/logger-js-pino/issues"
+  },
+  "homepage": "https://github.com/Potentii/logger-js-pino#readme",
+
+  "dependencies": {
+    "pino": "9.5.0"
+  }
+}
