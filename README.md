@@ -22,7 +22,7 @@ import Logger from '@potentii/logger-js-pino';
 Logger
     .withLevel('info') // Possible levels: debug, trace, info, warn, error, fatal
     .customField({ service: 'my-app' }) // Optional fields to compose your logs (at top level)
-    .put({ correlationId: '8888' }); // Optional data to compose your logs (inside 'data' special field)
+    .set({ correlationId: '8888' }); // Optional data to compose your logs (inside 'data' special field)
 
 //...
 

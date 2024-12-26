@@ -93,7 +93,7 @@ export default class Logger {
     subLogger(){
         const subLogger = new Logger({ level: this.#level });
         subLogger.customField(this.#customFields);
-        subLogger.put(this.#ctx);
+        subLogger.set(this.#ctx);
         subLogger.#updatePino();
         return subLogger;
     }
@@ -275,8 +275,8 @@ export default class Logger {
      * @param {object} ctx
      * @returns {Logger}
      */
-    static put(ctx) {
-        return Logger.instance.put(ctx);
+    static set(ctx) {
+        return Logger.instance.set(ctx);
     }
 
     /**
@@ -284,10 +284,11 @@ export default class Logger {
      * @param {object} ctx
      * @returns {Logger}
      */
-    put(ctx) {
+    set(ctx) {
         this.#ctx = {...(this.#ctx || {}), ...(ctx || {})};
         return this;
     }
+
 
 
     /**
