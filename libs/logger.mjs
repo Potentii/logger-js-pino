@@ -79,25 +79,23 @@ export default class Logger {
 
     /**
      *
-     * @param {Logger} baseLogger
      * @returns {Logger}
      */
-    static withBase(baseLogger) {
-        return Logger.instance.withBase(baseLogger);
+    static subLogger() {
+        return Logger.instance.subLogger();
     }
 
 
     /**
      *
-     * @param {Logger} baseLogger
      * @returns {Logger}
      */
-    withBase(baseLogger) {
-        this.#level = baseLogger.#level;
-        this.customField(baseLogger.#customFields);
-        this.put(baseLogger.#ctx);
-        this.#updatePino();
-        return this;
+    subLogger(){
+        const subLogger = new Logger({ level: this.#level });
+        subLogger.customField(this.#customFields);
+        subLogger.put(this.#ctx);
+        subLogger.#updatePino();
+        return subLogger;
     }
 
 
