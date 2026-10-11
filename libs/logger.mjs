@@ -1,6 +1,20 @@
 import pino from "pino";
 
 
+/**
+ *
+ * @enum {ELogLevel}
+ */
+const E_LOG_LEVELS = Object.freeze({
+    debug: 'debug',
+    trace: 'trace',
+    info: 'info',
+    warn: 'warn',
+    error: 'error',
+    fatal: 'fatal',
+});
+
+
 export default class Logger {
 
     /**
@@ -76,6 +90,20 @@ export default class Logger {
         return this;
     }
 
+    /**
+     * @returns {Readonly<Record<ELogLevel, ELogLevel>>}
+     */
+    static get levels() {
+        return E_LOG_LEVELS;
+    }
+
+    /**
+     * @returns {Readonly<Record<ELogLevel, ELogLevel>>}
+     */
+    get levels() {
+        return E_LOG_LEVELS;
+    }
+
 
     /**
      *
@@ -90,8 +118,8 @@ export default class Logger {
      *
      * @returns {Logger}
      */
-    subLogger(){
-        const subLogger = new Logger({ level: this.#level });
+    subLogger() {
+        const subLogger = new Logger({level: this.#level});
         subLogger.customField(this.#customFields);
         subLogger.set(this.#ctx);
         subLogger.#updatePino();
@@ -288,7 +316,6 @@ export default class Logger {
         this.#ctx = {...(this.#ctx || {}), ...(ctx || {})};
         return this;
     }
-
 
 
     /**
